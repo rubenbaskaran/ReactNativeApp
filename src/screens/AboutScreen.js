@@ -1,5 +1,11 @@
 import React from "react";
-import { Text, StyleSheet, View, FlatList } from "react-native";
+import {
+  Text,
+  StyleSheet,
+  View,
+  FlatList,
+  TouchableOpacity,
+} from "react-native";
 
 const friends = [
   { name: "friend #1", age: "25" },
@@ -14,10 +20,13 @@ const friends = [
   { name: "friend #10", age: "34" },
 ];
 
-const AboutScreen = () => {
+const AboutScreen = (props) => {
   return (
     <View>
       <Text style={styles.title}>AboutScreen</Text>
+      <TouchableOpacity onPress={() => props.navigation.navigate("Home")}>
+        <Text>Go to Home</Text>
+      </TouchableOpacity>
       <FlatList
         contentContainerStyle={styles.list}
         vertical
