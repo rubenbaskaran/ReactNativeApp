@@ -6,6 +6,7 @@ import {
   FlatList,
   TouchableOpacity,
 } from "react-native";
+import ListItem from "../components/ListItem";
 
 const friends = [
   { name: "friend #1", age: "25" },
@@ -23,20 +24,18 @@ const friends = [
 const AboutScreen = ({ navigation }) => {
   return (
     <View>
-      <Text style={styles.title}>AboutScreen</Text>
+      <Text style={styles.title}>About</Text>
       <TouchableOpacity onPress={() => navigation.navigate("Home")}>
         <Text>Go to Home</Text>
       </TouchableOpacity>
       <FlatList
         contentContainerStyle={styles.list}
         vertical
-        showsVerticalScrollIndicator={false}
+        showsVerticalScrollIndicator={true}
         keyExtractor={(item) => item.name}
         data={friends}
         renderItem={({ item }) => {
-          return (
-            <Text style={styles.listitem}>{item.name + " - " + item.age}</Text>
-          );
+          return <ListItem name={item.name} age={item.age} />;
         }}
       ></FlatList>
     </View>
@@ -49,10 +48,6 @@ const styles = StyleSheet.create({
   },
   list: {
     alignItems: "center",
-  },
-  listitem: {
-    fontSize: 15,
-    marginVertical: 50,
   },
 });
 
