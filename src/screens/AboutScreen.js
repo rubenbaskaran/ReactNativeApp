@@ -20,11 +20,11 @@ const friends = [
   { name: "friend #10", age: "34" },
 ];
 
-const AboutScreen = (props) => {
+const AboutScreen = ({ navigation }) => {
   return (
     <View>
       <Text style={styles.title}>AboutScreen</Text>
-      <TouchableOpacity onPress={() => props.navigation.navigate("Home")}>
+      <TouchableOpacity onPress={() => navigation.navigate("Home")}>
         <Text>Go to Home</Text>
       </TouchableOpacity>
       <FlatList
