@@ -1,11 +1,33 @@
 import React from "react";
-import { Text, StyleSheet, Button, View, TouchableOpacity } from "react-native";
+import {
+  Text,
+  StyleSheet,
+  Button,
+  View,
+  TouchableOpacity,
+  Image,
+} from "react-native";
 
 const ListItem = (props) => {
+  let resourceNumber = "";
+
+  switch (props.image) {
+    case "beach":
+      resourceNumber = require("../../assets/beach.jpg");
+      break;
+    case "forest":
+      resourceNumber = require("../../assets/forest.jpg");
+      break;
+    case "mountain":
+      resourceNumber = require("../../assets/mountain.jpg");
+      break;
+  }
+
   return (
     <View style={styles.listitem}>
       <Text>Name: {props.name}</Text>
       <Text>Age: {props.age}</Text>
+      <Image source={resourceNumber}></Image>
     </View>
   );
 };
