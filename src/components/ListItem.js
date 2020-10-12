@@ -8,10 +8,10 @@ import {
   Image,
 } from "react-native";
 
-const ListItem = (props) => {
+const ListItem = ({ name, age, image }) => {
   let resourceNumber = "";
 
-  switch (props.image) {
+  switch (image) {
     case "beach":
       resourceNumber = require("../../assets/beach.jpg");
       break;
@@ -25,8 +25,8 @@ const ListItem = (props) => {
 
   return (
     <View style={styles.listitem}>
-      <Text>Name: {props.name}</Text>
-      <Text>Age: {props.age}</Text>
+      <Text>Name: {name}</Text>
+      <Text>Age: {age}</Text>
       <Image source={resourceNumber}></Image>
     </View>
   );
