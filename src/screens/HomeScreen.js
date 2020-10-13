@@ -41,7 +41,7 @@ const HomeScreen = ({ navigation }) => {
           <View
             style={{
               backgroundColor: "red",
-              width: "20%",
+              width: 100,
               height: "100%",
               alignSelf: "center",
             }}
