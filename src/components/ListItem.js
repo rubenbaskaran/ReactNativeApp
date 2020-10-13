@@ -35,7 +35,9 @@ const ListItem = ({ name, age, image }) => {
 const styles = StyleSheet.create({
   listitem: {
     fontSize: 15,
-    marginBottom: 20,
+    marginVertical: 10,
+    borderWidth: 2,
+    alignItems: "center",
   },
 });
 

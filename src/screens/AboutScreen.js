@@ -23,9 +23,12 @@ const friends = [
 
 const AboutScreen = ({ navigation }) => {
   return (
-    <View>
+    <View style={{ borderWidth: 1, borderColor: "yellow" }}>
       <Text style={styles.title}>About</Text>
-      <TouchableOpacity onPress={() => navigation.navigate("Home")}>
+      <TouchableOpacity
+        onPress={() => navigation.navigate("Home")}
+        style={{ borderWidth: 2, borderColor: "red" }}
+      >
         <Text>Go to Home</Text>
       </TouchableOpacity>
       <FlatList
@@ -51,9 +54,13 @@ const AboutScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   title: {
     fontSize: 30,
+    borderWidth: 2,
+    borderColor: "green",
   },
   list: {
-    alignItems: "center",
+    alignItems: "stretch",
+    borderWidth: 2,
+    borderColor: "blue",
   },
 });
 

@@ -6,13 +6,15 @@ const HomeScreen = ({ navigation }) => {
   const [name, setName] = useState("");
 
   return (
-    <View>
+    <View style={{ alignItems: "stretch" }}>
       <Text style={styles.text}>Home</Text>
       <Button
         title="Go to About"
         onPress={() => navigation.navigate("About")}
       ></Button>
-      <Text>Current Count: {counter}</Text>
+      <View style={{ alignItems: "center" }}>
+        <Text>Current Count: {counter}</Text>
+      </View>
       <Button
         title="Increase"
         onPress={() => {
@@ -32,8 +34,12 @@ const HomeScreen = ({ navigation }) => {
         value={name}
         onChangeText={(newValue) => setName(newValue)}
       ></TextInput>
-      <Text>Your name is: {name}</Text>
-      {name.match(/\d/) ? <Text>Error! Name can't contain numbers</Text> : null}
+      <View style={{ alignItems: "center" }}>
+        <Text>Your name is: {name}</Text>
+        {name.match(/\d/) ? (
+          <Text>Error! Name can't contain numbers</Text>
+        ) : null}
+      </View>
     </View>
   );
 };
