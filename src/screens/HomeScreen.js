@@ -6,7 +6,16 @@ const HomeScreen = ({ navigation }) => {
   const [name, setName] = useState("");
 
   return (
-    <View style={{ alignItems: "stretch" }}>
+    <View
+      style={{
+        borderWidth: 1,
+        borderColor: "red",
+        alignItems: "stretch",
+        flexDirection: "column",
+        justifyContent: "flex-start",
+        height: "100%",
+      }}
+    >
       <Text style={styles.text}>Home</Text>
       <Button
         title="Go to About"
