@@ -8,7 +8,7 @@ import {
   Image,
 } from "react-native";
 
-const ListItem = ({ name, age, image }) => {
+const ListItem = ({ name, age, image, navigation }) => {
   let resourceNumber = "";
 
   switch (image) {
@@ -29,7 +29,12 @@ const ListItem = ({ name, age, image }) => {
         <Text>Name: {name}</Text>
         <Text>Age: {age}</Text>
       </View>
-      <Image source={resourceNumber} style={styles.imageitem}></Image>
+      <TouchableOpacity
+        style={{ width: "100%" }}
+        onPress={() => navigation.navigate("Home")}
+      >
+        <Image source={resourceNumber} style={styles.imageitem}></Image>
+      </TouchableOpacity>
     </View>
   );
 };

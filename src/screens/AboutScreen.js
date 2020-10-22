@@ -49,6 +49,7 @@ const AboutScreen = ({ navigation }) => {
                 name={item.name}
                 age={item.age}
                 image={item.imageCategory}
+                navigation={navigation}
               />
               <View style={{ flex: 1 }}></View>
             </View>
