@@ -32,7 +32,7 @@ const ListItem = ({ name, age, image, navigation }) => {
       </View>
       <TouchableOpacity
         style={{ width: "100%" }}
-        onPress={() => navigation.navigate("Home")}
+        onPress={() => navigation.navigate("Home", { name: name, age: age })}
       >
         <Image source={resourceNumber} style={styles.imageitem}></Image>
       </TouchableOpacity>

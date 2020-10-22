@@ -1,9 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Text, StyleSheet, Button, View, TextInput } from "react-native";
 
 const HomeScreen = ({ navigation }) => {
   const [counter, setCounter] = useState(0);
   const [name, setName] = useState("");
+  const _name = navigation.getParam("name");
+  const _age = navigation.getParam("age");
+
+  useEffect(() => {
+    if (_name != undefined && _age != undefined) {
+      setName(_name + " - " + _age);
+    }
+  }, [_name, _age]);
 
   return (
     <View
