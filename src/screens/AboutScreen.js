@@ -23,7 +23,7 @@ const friends = [
 
 const AboutScreen = ({ navigation }) => {
   return (
-    <View style={{ borderWidth: 1, borderColor: "yellow" }}>
+    <>
       <Text style={styles.title}>About</Text>
       <TouchableOpacity
         onPress={() => navigation.navigate("Home")}
@@ -55,7 +55,7 @@ const AboutScreen = ({ navigation }) => {
           );
         }}
       ></FlatList>
-    </View>
+    </>
   );
 };
 
