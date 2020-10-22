@@ -25,9 +25,11 @@ const ListItem = ({ name, age, image }) => {
 
   return (
     <View style={styles.listitem}>
-      <Text>Name: {name}</Text>
-      <Text>Age: {age}</Text>
-      <Image source={resourceNumber}></Image>
+      <View style={styles.textitem}>
+        <Text>Name: {name}</Text>
+        <Text>Age: {age}</Text>
+      </View>
+      <Image source={resourceNumber} style={styles.imageitem}></Image>
     </View>
   );
 };
@@ -37,7 +39,19 @@ const styles = StyleSheet.create({
     fontSize: 15,
     marginVertical: 10,
     borderWidth: 2,
+    borderColor: "black",
     alignItems: "center",
+    padding: 10,
+    flex: 8,
+  },
+  imageitem: {
+    borderRadius: 1,
+    borderWidth: 2,
+    borderColor: "black",
+    width: "100%",
+  },
+  textitem: {
+    alignSelf: "flex-start",
   },
 });
 

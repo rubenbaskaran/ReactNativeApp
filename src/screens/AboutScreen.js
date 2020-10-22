@@ -39,11 +39,19 @@ const AboutScreen = ({ navigation }) => {
         keyExtractor={(item) => item.name}
         renderItem={({ item }) => {
           return (
-            <ListItem
-              name={item.name}
-              age={item.age}
-              image={item.imageCategory}
-            />
+            <View
+              style={{
+                flexDirection: "row",
+              }}
+            >
+              <View style={{ flex: 1 }}></View>
+              <ListItem
+                name={item.name}
+                age={item.age}
+                image={item.imageCategory}
+              />
+              <View style={{ flex: 1 }}></View>
+            </View>
           );
         }}
       ></FlatList>
