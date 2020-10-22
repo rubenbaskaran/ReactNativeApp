@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   Image,
 } from "react-native";
+import { withNavigation } from "react-navigation";
 
 const ListItem = ({ name, age, image, navigation }) => {
   let resourceNumber = "";
@@ -60,4 +61,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ListItem;
+export default withNavigation(ListItem);
