@@ -10,7 +10,7 @@ import ListItem from "../components/ListItem";
 import GlobalContext from "../context";
 
 const AboutScreen = ({ navigation }) => {
-  const globalList = useContext(GlobalContext);
+  const context = useContext(GlobalContext);
 
   return (
     <>
@@ -25,7 +25,7 @@ const AboutScreen = ({ navigation }) => {
         contentContainerStyle={styles.list}
         vertical
         showsVerticalScrollIndicator={true}
-        data={globalList}
+        data={context.listOfFriends}
         keyExtractor={(item) => item.name}
         renderItem={({ item }) => {
           return (

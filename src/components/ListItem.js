@@ -8,9 +8,11 @@ import {
   Image,
 } from "react-native";
 import { withNavigation } from "react-navigation";
+import GlobalContext from "../context";
 
 const ListItem = ({ name, age, image, navigation }) => {
   let resourceNumber = "";
+  const context = useContext(GlobalContext);
 
   switch (image) {
     case "beach":
@@ -32,7 +34,10 @@ const ListItem = ({ name, age, image, navigation }) => {
       </View>
       <TouchableOpacity
         style={{ width: "100%" }}
-        onPress={() => navigation.navigate("Home", { name: name, age: age })}
+        onPress={() => {
+          context.printFriendName(name);
+          navigation.navigate("Home", { name: name, age: age });
+        }}
       >
         <Image source={resourceNumber} style={styles.imageitem}></Image>
       </TouchableOpacity>
