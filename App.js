@@ -3,6 +3,7 @@ import { createStackNavigator } from "react-navigation-stack";
 import HomeScreen from "./src/screens/HomeScreen";
 import AboutScreen from "./src/screens/AboutScreen";
 import React from "react";
+import { GlobalContextProvider } from "./src/context";
 
 const navigator = createStackNavigator(
   {
@@ -19,5 +20,9 @@ const navigator = createStackNavigator(
 
 const App = createAppContainer(navigator);
 export default () => {
-  return <App />;
+  return (
+    <GlobalContextProvider>
+      <App />
+    </GlobalContextProvider>
+  );
 };

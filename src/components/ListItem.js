@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   Text,
   StyleSheet,
@@ -8,9 +8,11 @@ import {
   Image,
 } from "react-native";
 import { withNavigation } from "react-navigation";
+import GlobalContext from "../context";
 
 const ListItem = ({ name, age, image, navigation }) => {
   let resourceNumber = "";
+  const globalValue = useContext(GlobalContext);
 
   switch (image) {
     case "beach":
@@ -29,6 +31,7 @@ const ListItem = ({ name, age, image, navigation }) => {
       <View style={styles.textitem}>
         <Text>Name: {name}</Text>
         <Text>Age: {age}</Text>
+        <Text>Global value: {globalValue}</Text>
       </View>
       <TouchableOpacity
         style={{ width: "100%" }}
