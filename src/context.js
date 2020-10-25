@@ -3,7 +3,8 @@ import React, { useState, useEffect } from "react";
 const GlobalContext = React.createContext();
 
 export const GlobalContextProvider = ({ children }) => {
-  const Friends = [
+  const [name, setName] = useState("");
+  const [getListOfFriends, setListOfFriends] = useState([
     { name: "friend #1", age: "25", imageCategory: "beach" },
     { name: "friend #2", age: "26", imageCategory: "forest" },
     { name: "friend #3", age: "27", imageCategory: "mountain" },
@@ -14,12 +15,7 @@ export const GlobalContextProvider = ({ children }) => {
     { name: "friend #8", age: "32", imageCategory: "forest" },
     { name: "friend #9", age: "33", imageCategory: "mountain" },
     { name: "friend #10", age: "34", imageCategory: "beach" },
-  ];
-
-  const [name, setName] = useState("");
-  const Print = (input) => {
-    setName(input);
-  };
+  ]);
 
   useEffect(() => {
     if (name != "") {
@@ -29,7 +25,11 @@ export const GlobalContextProvider = ({ children }) => {
 
   return (
     <GlobalContext.Provider
-      value={{ listOfFriends: Friends, printFriendName: Print }}
+      value={{
+        getListOfFriends: getListOfFriends,
+        setListOfFriends: setListOfFriends,
+        printFriendName: setName,
+      }}
     >
       {children}
     </GlobalContext.Provider>

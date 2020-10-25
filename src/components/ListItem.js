@@ -12,7 +12,9 @@ import GlobalContext from "../context";
 
 const ListItem = ({ name, age, image, navigation }) => {
   let resourceNumber = "";
-  const context = useContext(GlobalContext);
+  const { printFriendName, setListOfFriends, getListOfFriends } = useContext(
+    GlobalContext
+  );
 
   switch (image) {
     case "beach":
@@ -35,7 +37,10 @@ const ListItem = ({ name, age, image, navigation }) => {
       <TouchableOpacity
         style={{ width: "100%" }}
         onPress={() => {
-          context.printFriendName(name);
+          printFriendName(name);
+          setListOfFriends(
+            getListOfFriends.filter((friend) => friend.name != name)
+          );
           navigation.navigate("Home", { name: name, age: age });
         }}
       >
