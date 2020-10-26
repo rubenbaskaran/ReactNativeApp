@@ -8,17 +8,26 @@ const HomeScreen = ({ navigation }) => {
   const _name = navigation.getParam("name");
   const _age = navigation.getParam("age");
 
+  const callWebApi = async () => {
+    const response = await jsonServer.get("/person");
+    console.log(response.data);
+  };
+
+  useEffect(() => {
+    const listener = navigation.addListener("didFocus", () => {
+      callWebApi();
+    });
+
+    return () => {
+      listener.remove();
+    };
+  }, []);
+
   useEffect(() => {
     if (_name != undefined && _age != undefined) {
       setName(_name + " - " + _age);
     }
   }, [_name, _age]);
-
-  const callWebApi = async () => {
-    const response = await jsonServer.get("/person");
-    console.log(response.data);
-  };
-  callWebApi();
 
   return (
     <View
