@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Text, StyleSheet, Button, View, TextInput } from "react-native";
+import jsonServer from "../api/jsonServer";
 
 const HomeScreen = ({ navigation }) => {
   const [counter, setCounter] = useState(0);
@@ -12,6 +13,12 @@ const HomeScreen = ({ navigation }) => {
       setName(_name + " - " + _age);
     }
   }, [_name, _age]);
+
+  const callWebApi = async () => {
+    const response = await jsonServer.get("/person");
+    console.log(response.data);
+  };
+  callWebApi();
 
   return (
     <View
