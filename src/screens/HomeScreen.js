@@ -15,7 +15,7 @@ const HomeScreen = ({ navigation }) => {
 
   useEffect(() => {
     const listener = navigation.addListener("didFocus", () => {
-      callWebApi();
+      // callWebApi();
     });
 
     return () => {
