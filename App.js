@@ -4,6 +4,9 @@ import HomeScreen from "./src/screens/HomeScreen";
 import AboutScreen from "./src/screens/AboutScreen";
 import React from "react";
 import { GlobalContextProvider } from "./src/context";
+import {Provider} from "react-redux";
+import {createStore} from "redux";
+import combineReducers from "./src/reduxStore"
 
 const navigator = createStackNavigator(
   {
@@ -21,8 +24,10 @@ const navigator = createStackNavigator(
 const App = createAppContainer(navigator);
 export default () => {
   return (
+    <Provider store={createStore(combineReducers)}>
     <GlobalContextProvider>
       <App />
     </GlobalContextProvider>
+    </Provider>
   );
 };
