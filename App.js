@@ -5,6 +5,8 @@ import AboutScreen from "./src/screens/AboutScreen";
 import React from "react";
 import { GlobalContextProvider } from "./src/context";
 
+// TODO: Add redux to manage some global variable
+
 const navigator = createStackNavigator(
   {
     Home: HomeScreen,
